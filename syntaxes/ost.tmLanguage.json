@@ -1,0 +1,67 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ostichdb",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#integers"
+		},
+		{
+			"include": "#floats"
+		},
+		{
+			"include": "#booleans"
+		},
+		{
+			"include": "#comments"
+		}
+
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ost",
+				"match": "\\b(BOOL|STRING|INT|FLOAT|IDENTIFIER|identifier|bool|string|float|int)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.ost",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ost",
+					"match": "\b(true|false)\b"
+				}
+			]
+		},
+		"integers": {
+			"name": "constant.numeric.integer.ost",
+			"match": "\\b[0-9]+\\b"
+		},
+		"floats": {
+			"name": "constant.numeric.float.ost",
+			"match": "\\b[0-9]+\\.[0-9]+\\b"
+		},
+		"booleans": {
+			"name": "constant.language.boolean.ost",
+			"match": "\\b(true|false|TRUE|FALSE)\\b"
+		},
+		"comments":{
+			"patterns": [
+				{
+					"name": "comment.line.hashtag.ost",
+					"match": "#.*$"
+				}
+			]
+		}
+
+		
+	},
+	"scopeName": "collections.ost"
+}
